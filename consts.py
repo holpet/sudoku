@@ -11,18 +11,20 @@ MENU_SPACE = round((SCREEN_HEIGHT - BLOCK_HEIGHT*NUMBER_OF_BLOCKS_COL) / 6.7)
 
 LIGHT_BLUE = (15, 165, 255)
 LIGHTER_BLUE = (150, 214, 255)
+DARK_BLUE = (14, 104, 158)
 BACK_BLUE = (15, 165, 255)
-GREY = (150, 150, 150)
+GREY = (160, 160, 160)
+DARK_GREY = (105, 105, 105)
 LIGHT_GREY = (200, 200, 200)
 BLACK = (0, 0, 0)
-
-#global SET_HIGHLIGHT
-#SET_HIGHLIGHT = [0, 0]
 
 GAME_FILE = 'prepped_games/prepped_games_file.txt'
 GAME_FILE_SOLVED = 'prepped_games/prepped_games_file_solved.txt'
 GAME_ICON = 'img/icon1.png'
 GAME_TITLE = 'SUDOKU SOLVER'
+CLOCK_ICON = 'img/clock_icon3b.png'
+DOWN_ICON = 'img/thumbdown2.png'
+FONT_MONO = 'font/AurulentSansMono-Regular.otf'
 
 
 

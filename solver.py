@@ -24,8 +24,6 @@ def solve(board):
 
 # Take in idx as tpl and list of values to check for validity.
 def validate(board, pos, num):
-    # Tprint(lst, tpl)
-
     # Check on horizontal
     for i in range(9):
         if num == int(board[pos[0]][i]):
@@ -46,12 +44,3 @@ def validate(board, pos, num):
                 return False
 
     return True
-
-
-# Read file and solve the game
-"""
-print_board(bo)
-sudoku = solve(bo)
-if sudoku:
-    print_board(sudoku)
-"""
