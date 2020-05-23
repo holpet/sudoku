@@ -1,37 +1,56 @@
+import collections
+
+global CATCH_DICT  # To show solving path
+CATCH_DICT = collections.defaultdict(list)
+global VISU_LIST
+VISU_LIST = []
+
+
 # Return idx tuples with no solution
-def find_empty_pos(board):
+def find_empty_pos(bo):
     for i in range(9):
         for j in range(9):
-            if int(board[i][j]) == 0:
+            if int(bo[i][j]) == 0:
                 return i, j
     return False
 
 
 # Go through the list, when you encounter 0, try to solve.
-def solve(board):
-    empty_pos = find_empty_pos(board)
+def solve(bo):
+    empty_pos = find_empty_pos(bo)
     if empty_pos is False:
-        return board
+        return bo
     else:
         for num in range(1, 10):
-            if validate(board, empty_pos, num):
-                board[empty_pos[0]][empty_pos[1]] = str(num)
-                if solve(board):
-                    return board
-                board[empty_pos[0]][empty_pos[1]] = '0'
+            if validate(bo, empty_pos, num):
+                bo[empty_pos[0]][empty_pos[1]] = str(num)
+                catch_options(empty_pos[0], empty_pos[1], num, 'G')
+                VISU_LIST.append([empty_pos[0], empty_pos[1], num, 'G'])
+                if solve(bo):
+                    return bo
+                bo[empty_pos[0]][empty_pos[1]] = '0'
+                catch_options(empty_pos[0], empty_pos[1], num, 'R')
+                VISU_LIST.append([empty_pos[0], empty_pos[1], num, 'R'])
         return False
 
 
+def catch_options(i, j, num, s):
+    # {(1, 2): [[5, 'G'], [8, 'R']]}...
+    tpl = (i, j)
+    CATCH_DICT[tpl].append([num, s])
+    #print(CATCH_DICT)
+
+
 # Take in idx as tpl and list of values to check for validity.
-def validate(board, pos, num):
+def validate(bo, pos, num):
     # Check on horizontal
     for i in range(9):
-        if num == int(board[pos[0]][i]):
+        if num == int(bo[pos[0]][i]):
             return False
 
     # Check on vertical
     for j in range(9):
-        if num == int(board[j][pos[1]]):
+        if num == int(bo[j][pos[1]]):
             return False
 
     # Check on group 3x3
@@ -40,7 +59,7 @@ def validate(board, pos, num):
 
     for k in range(3):
         for h in range(3):
-            if int(board[row * 3 + k][col * 3 + h]) == num:
+            if int(bo[row * 3 + k][col * 3 + h]) == num:
                 return False
 
     return True

@@ -2,14 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cbf57e58-edce-43b5-b6b7-35913fb16fd7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/py.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/py.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/board.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/features.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/consts.py" beforeDir="false" afterPath="$PROJECT_DIR$/consts.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game_func.py" beforeDir="false" afterPath="$PROJECT_DIR$/solver.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gui_func.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/consts.py" beforeDir="false" afterPath="$PROJECT_DIR$/constants.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/solver.py" beforeDir="false" afterPath="$PROJECT_DIR$/solver.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +43,7 @@
     <option name="myPyQtBackend" value="PyQt4" />
   </component>
   <component name="RunManager" selected="Python.main">
-    <configuration name="consts" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="features" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="py" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -56,7 +55,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/consts.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/features.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -65,30 +64,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="game_func" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="py" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-        <env name="PYDEVD_USE_CYTHON" value="NO" />
-        <env name="PYDEVD_USE_FRAME_EVAL" value="NO" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="D:\PYTHON\py\game_func.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="gui (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="game" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="py" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -100,28 +76,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/gui.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="gui" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="py" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="D:\PYTHON\py\gui.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/game.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -151,12 +106,55 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="solver" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="py" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/solver.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="testing" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="py" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/venv" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/venv/testing.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Python.main" />
-        <item itemvalue="Python.consts" />
-        <item itemvalue="Python.gui (1)" />
-        <item itemvalue="Python.game_func" />
+        <item itemvalue="Python.testing" />
+        <item itemvalue="Python.game" />
+        <item itemvalue="Python.features" />
+        <item itemvalue="Python.solver" />
       </list>
     </recent_temporary>
   </component>
@@ -190,38 +188,38 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="307" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1589887196318" />
-    <state width="1898" height="258" key="GridCell.Tab.0.bottom" timestamp="1589923888517">
+    <state width="1898" height="258" key="GridCell.Tab.0.bottom" timestamp="1590268619123">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1898" height="258" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1589923888517" />
-    <state width="1898" height="258" key="GridCell.Tab.0.center" timestamp="1589923888517">
+    <state width="1898" height="258" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1590268619123" />
+    <state width="1898" height="258" key="GridCell.Tab.0.center" timestamp="1590268619122">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1898" height="258" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1589923888517" />
-    <state width="1898" height="258" key="GridCell.Tab.0.left" timestamp="1589923888517">
+    <state width="1898" height="258" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1590268619122" />
+    <state width="1898" height="258" key="GridCell.Tab.0.left" timestamp="1590268619122">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1898" height="258" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1589923888517" />
-    <state width="1898" height="258" key="GridCell.Tab.0.right" timestamp="1589923888517">
+    <state width="1898" height="258" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1590268619122" />
+    <state width="1898" height="258" key="GridCell.Tab.0.right" timestamp="1590268619123">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1898" height="258" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1589923888517" />
-    <state width="1898" height="341" key="GridCell.Tab.1.bottom" timestamp="1589817701982">
+    <state width="1898" height="258" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1590268619123" />
+    <state width="1898" height="341" key="GridCell.Tab.1.bottom" timestamp="1590256367168">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1898" height="341" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1589817701982" />
-    <state width="1898" height="341" key="GridCell.Tab.1.center" timestamp="1589817701982">
+    <state width="1898" height="341" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1590256367168" />
+    <state width="1898" height="341" key="GridCell.Tab.1.center" timestamp="1590256367168">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1898" height="341" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1589817701982" />
-    <state width="1898" height="341" key="GridCell.Tab.1.left" timestamp="1589817701982">
+    <state width="1898" height="341" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1590256367168" />
+    <state width="1898" height="341" key="GridCell.Tab.1.left" timestamp="1590256367168">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1898" height="341" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1589817701982" />
-    <state width="1898" height="341" key="GridCell.Tab.1.right" timestamp="1589817701982">
+    <state width="1898" height="341" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1590256367168" />
+    <state width="1898" height="341" key="GridCell.Tab.1.right" timestamp="1590256367168">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1898" height="341" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1589817701982" />
+    <state width="1898" height="341" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1590256367168" />
     <state x="461" y="150" key="SettingsEditor" timestamp="1589887274591">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -230,10 +228,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="498" height="446" key="SwitcherDM/0.0.1920.1040@0.0.1920.1040" timestamp="1589808224945" />
-    <state x="661" y="342" key="com.intellij.ide.util.TipDialog" timestamp="1589739794540">
+    <state x="661" y="342" key="com.intellij.ide.util.TipDialog" timestamp="1590092146770">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="661" y="342" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1589739794540" />
+    <state x="661" y="342" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1590092146770" />
     <state x="769" y="435" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1589900217282">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -242,10 +240,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="531" y="254" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1920.1040@0.0.1920.1040" timestamp="1589805081096" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1589808222709">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1590263847247">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1589808222709" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1590263847247" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
