@@ -1,6 +1,6 @@
 import collections
 
-global CATCH_DICT  # To show solving path
+global CATCH_DICT  # To show solving path (red/green values)
 CATCH_DICT = collections.defaultdict(list)
 global VISU_LIST
 VISU_LIST = []
@@ -34,13 +34,6 @@ def solve(bo):
         return False
 
 
-def catch_options(i, j, num, s):
-    # {(1, 2): [[5, 'G'], [8, 'R']]}...
-    tpl = (i, j)
-    CATCH_DICT[tpl].append([num, s])
-    #print(CATCH_DICT)
-
-
 # Take in idx as tpl and list of values to check for validity.
 def validate(bo, pos, num):
     # Check on horizontal
@@ -63,3 +56,12 @@ def validate(bo, pos, num):
                 return False
 
     return True
+
+
+# ------------------------------------------------------------------------------------------
+
+def catch_options(i, j, num, s):
+    # {(1, 2): [[5, 'G'], [8, 'R']]}...
+    tpl = (i, j)
+    CATCH_DICT[tpl].append([num, s])
+    #print(CATCH_DICT)

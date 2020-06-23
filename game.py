@@ -1,13 +1,12 @@
-import collections
-
 import pygame
-import sys
 import time
+import collections
 
 import constants
 import solver
 import features
 import board
+import event_handler
 
 global SET_CURRENT  # Keeps track of current position on the board based on user input
 SET_CURRENT = [0, 0]
@@ -17,22 +16,12 @@ global resetter
 resetter = False
 global visu_block
 visu_block = True
+global own_game
+own_game = False
 
 
-def check_board_limits(pos_x, pos_y):
-    if pos_x < 0 or pos_x > 8 or pos_y < 0 or pos_y > 8:
-        return False
-    return True
-
-
-def insert_numkey(num):
-    if solver.validate(board.BOARD, (SET_CURRENT[1], SET_CURRENT[0]), num) and int(board.ORIG_BOARD[SET_CURRENT[1]][SET_CURRENT[0]]) == 0:
-        print("Num " + str(num) + " inserted.")
-        board.BOARD[SET_CURRENT[1]][SET_CURRENT[0]] = str(num)
-    else:
-        features.STRIKES += 1
-        print("Num " + str(num) + " not inserted.")
-
+# --------------------------------------------------------------------------------------------
+# FUNCTIONS: RESET, SOLVE, HINT...
 
 def reset_game():
     global visualization
@@ -49,22 +38,40 @@ def reset_game():
     board.print_board(board.ORIG_BOARD)
 
 
-def clear_board(bo):
+def reset_timer_strikes():
+    features.STRIKES = 0
+    features.TIMER = 0
+
+
+def reset_all():
     for i in range(constants.NUMBER_OF_BLOCKS_ROW):
         for j in range(constants.NUMBER_OF_BLOCKS_COL):
-            bo[i][j] = '0'
+            board.ORIG_BOARD[i][j] = '0'
+    reset_game()
 
 
-def copy_board(bo):
-    sb = [[0 for j in range(constants.NUMBER_OF_BLOCKS_COL)] for i in range(constants.NUMBER_OF_BLOCKS_ROW)]
-    for i in range(constants.NUMBER_OF_BLOCKS_ROW):
-        for j in range(constants.NUMBER_OF_BLOCKS_COL):
-            sb[i][j] = bo[i][j]
-    return sb
+def load_initial_game():
+    board.BOARD = board.read_board(constants.GAME_FILE, 1)
+    board.ORIG_BOARD = board.copy_board(board.BOARD)
+    board.print_board(board.BOARD)
 
+
+def load_random_game():
+    board.BOARD = board.read_random_board(constants.GAME_FILE)
+    board.ORIG_BOARD = board.copy_board(board.BOARD)
+    board.print_board(board.BOARD)
+
+
+def load_own_game():
+    board.BOARD = board.read_random_board(constants.GAME_FILE_OWN)
+    board.ORIG_BOARD = board.copy_board(board.BOARD)
+    board.print_board(board.BOARD)
+
+
+# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> #
 
 def solve_game():
-    sb = copy_board(board.ORIG_BOARD)
+    sb = board.copy_board(board.ORIG_BOARD)
     return solver.solve(sb)
 
 
@@ -81,7 +88,7 @@ def draw_solved_game():
                 if solved_board[i][j] != board.BOARD[i][j]:
                     board.X_BOARD[i][j] = 'X'
                     board.BOARD[i][j] = solved_board[i][j]
-    clear_board(board.tmp_BOARD)
+    board.clear_board(board.tmp_BOARD)
     board.print_board(board.X_BOARD)
 
 
@@ -113,11 +120,28 @@ def draw_solve_progress(brd):
         visu_block = True
         solver.VISU_LIST = []
         draw_solved_game()
-        clear_board(board.X_BOARD)
+        board.clear_board(board.X_BOARD)
+
+
+# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> #
+
+def save_hints():
+    dict = collections.defaultdict(list)
+    for i in range(constants.NUMBER_OF_BLOCKS_ROW):
+        for j in range(constants.NUMBER_OF_BLOCKS_COL):
+            if board.BOARD[i][j] == 0 or board.BOARD[i][j] == '0':
+                for num in range(10):
+                    if solver.validate(board.BOARD, (i, j), num):
+                        dict[(i, j)].append(num)
+    board.HINT_DICT = dict
+    return dict
+
+
+def clear_hints():
+    board.HINT_DICT.clear()
 
 
 # --------------------------------------------------------------------------------------------
-
 
 def initialize_game():
     pygame.init()
@@ -132,157 +156,6 @@ def initialize_game():
 
     return surface
 
-# --------------------------------------------------------------------------------------------
-
-
-def redraw_button(surface, reset_button, hint_button, solve_button, new_button, visu_button):
-    # Clear the screen before drawing
-    reset_button.draw_button(surface, constants.BLACK)
-    hint_button.draw_button(surface, constants.BLACK)
-    solve_button.draw_button(surface, constants.BLACK)
-    new_button.draw_button(surface, constants.BLACK)
-    visu_button.draw_button(surface, constants.BLACK)
-
-
-def handle_events(reset_button, hint_button, solve_button, new_button, visu_button):
-    global visualization
-    global visu_block
-
-    for event in pygame.event.get():
-
-        # Exit game with X
-        if event.type == pygame.QUIT:
-            running = False
-            sys.exit()
-
-        # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> KEYS <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< #
-
-        # GENERAL KEY CONTROL
-        if event.type == pygame.KEYDOWN:
-
-            # Exit game with ESC
-            if event.key == pygame.K_ESCAPE:
-                running = False
-                sys.exit()
-
-            # Delete inserted numbers on board
-            if event.key == pygame.K_BACKSPACE or event.key == pygame.K_DELETE:
-                if int(board.ORIG_BOARD[SET_CURRENT[1]][SET_CURRENT[0]]) == 0:
-                    board.BOARD[SET_CURRENT[1]][SET_CURRENT[0]] = str(0)
-
-            # Move one tile in chosen direction (with arrows)
-            if event.key == pygame.K_LEFT:
-                if check_board_limits(SET_CURRENT[0] - 1, SET_CURRENT[1]):
-                    SET_CURRENT[0] = SET_CURRENT[0] - 1
-
-            if event.key == pygame.K_RIGHT:
-                if check_board_limits(SET_CURRENT[0] + 1, SET_CURRENT[1]):
-                    SET_CURRENT[0] = SET_CURRENT[0] + 1
-
-            if event.key == pygame.K_UP:
-                if check_board_limits(SET_CURRENT[0], SET_CURRENT[1] - 1):
-                    SET_CURRENT[1] = SET_CURRENT[1] - 1
-
-            if event.key == pygame.K_DOWN:
-                if check_board_limits(SET_CURRENT[0], SET_CURRENT[1] + 1):
-                    SET_CURRENT[1] = SET_CURRENT[1] + 1
-
-        # key up
-        if event.type == pygame.KEYUP:
-            pass
-
-            if event.key == pygame.K_LEFT or event.key == pygame.K_LEFT:
-                pass
-
-        # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> MOUSE <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< #
-
-        # MOUSE PRESS CONTROL
-        pos_over = pygame.mouse.get_pos()
-
-        if event.type == pygame.MOUSEMOTION:
-            if reset_button.isOver(pos_over):
-                reset_button.color = constants.LIGHTER_BLUE
-            else:
-                reset_button.color = constants.GREY
-            if hint_button.isOver(pos_over):
-                hint_button.color = constants.LIGHTER_BLUE
-            else:
-                hint_button.color = constants.GREY
-            if solve_button.isOver(pos_over):
-                solve_button.color = constants.LIGHTER_BLUE
-            else:
-                solve_button.color = constants.GREY
-
-        if event.type == pygame.MOUSEBUTTONDOWN:
-
-            if pygame.mouse.get_pressed()[0]:
-                pos = pygame.mouse.get_pos()
-
-                # Insert numbers
-                m_x = (pos[0] - constants.SIDE_SPACE) // constants.BLOCK_HEIGHT
-                m_y = (pos[1] - constants.TOP_SPACE) // constants.BLOCK_WIDTH
-                if check_board_limits(m_x, m_y):
-                    SET_CURRENT[0] = m_x
-                    SET_CURRENT[1] = m_y
-
-                print(m_x, m_y)
-                print(pos)
-
-            # Click buttons
-            if reset_button.isOver(pos_over):
-                reset_game()
-            if hint_button.isOver(pos_over):
-                print("Clicked hint.")
-
-            if solve_button.isOver(pos_over):
-                solve_game()
-                if visu_button.text == 'X':
-                    visu_block = True
-                    visualization = True
-                else:
-                    visualization = False
-                    visu_block = False
-
-            if new_button.isOver(pos_over):
-                print("Clicked new.")
-
-            if visu_button.isOver(pos_over):
-                if visu_button.text == 'X':
-                    visu_button.text = ''
-                else:
-                    visu_button.text = 'X'
-                print("Visu clicked.")
-
-
-        # NUMBERS CONTROL
-        if event.type == pygame.KEYDOWN:
-
-            if event.key == pygame.K_1 or event.key == pygame.K_KP1:
-                insert_numkey(1)
-
-            if event.key == pygame.K_2 or event.key == pygame.K_KP2:
-                insert_numkey(2)
-
-            if event.key == pygame.K_3 or event.key == pygame.K_KP3:
-                insert_numkey(3)
-
-            if event.key == pygame.K_4 or event.key == pygame.K_KP4:
-                insert_numkey(4)
-
-            if event.key == pygame.K_5 or event.key == pygame.K_KP5:
-                insert_numkey(5)
-
-            if event.key == pygame.K_6 or event.key == pygame.K_KP6:
-                insert_numkey(6)
-
-            if event.key == pygame.K_7 or event.key == pygame.K_KP7:
-                insert_numkey(7)
-
-            if event.key == pygame.K_8 or event.key == pygame.K_KP8:
-                insert_numkey(8)
-
-            if event.key == pygame.K_9 or event.key == pygame.K_KP9:
-                insert_numkey(9)
 
 # --------------------------------------------------------------------------------------------
 
@@ -299,6 +172,9 @@ def game_loop(surface, bo, brd):
     solve_button = buttons[2]
     new_button = buttons[3]
     visu_button = buttons[4]
+    generate_button = buttons[5]
+    insert_button = buttons[6]
+    validate_button = buttons[7]
 
     while running:
 
@@ -307,7 +183,7 @@ def game_loop(surface, bo, brd):
             start = time.time()
             resetter = False
 
-        handle_events(reset_button, hint_button, solve_button, new_button, visu_button)
+        event_handler.handle_events(reset_button, hint_button, solve_button, new_button, visu_button, generate_button, insert_button, validate_button)
 
         # Clear the screen before drawing
         surface.fill(constants.LIGHT_BLUE)
@@ -322,7 +198,7 @@ def game_loop(surface, bo, brd):
         features.draw_strikes(surface)
         features.draw_title(surface)
         features.init_buttons(surface)
-        redraw_button(surface, reset_button, hint_button, solve_button, new_button, visu_button)
+        features.redraw_button(surface, reset_button, hint_button, solve_button, new_button, visu_button, generate_button, insert_button, validate_button)
 
         if visualization:
             pygame.time.wait(15)
@@ -335,17 +211,24 @@ def game_loop(surface, bo, brd):
 
 class Game:
 
-    def __init__(self):
-        # Read file and print it
-        board.BOARD = board.read_board(constants.GAME_FILE, 1)
-        board.ORIG_BOARD = board.read_board(constants.GAME_FILE, 1)
-        board.print_board(board.BOARD)
+    def __init__(self, rand=False, own=False):
+
+        # Read file, load game and print board
+        if rand:
+            load_random_game()
+        else:
+            load_initial_game()
+
+        # Prepare for inserting user input on board
+        if own:
+            load_own_game()
 
         # Initiate additional boards
         board.X_BOARD = [[0 for j in range(constants.NUMBER_OF_BLOCKS_COL)] for i in range(constants.NUMBER_OF_BLOCKS_ROW)]
         board.tmp_BOARD = [[0 for j in range(constants.NUMBER_OF_BLOCKS_COL)] for i in range(constants.NUMBER_OF_BLOCKS_ROW)]
         board.LAST_USER_BOARD = [[0 for j in range(constants.NUMBER_OF_BLOCKS_COL)] for i in
                            range(constants.NUMBER_OF_BLOCKS_ROW)]
+        board.HINT_DICT = collections.defaultdict(list)
 
         # Initialize game and run game loop
         brd = board.Board()

@@ -23,6 +23,7 @@ BLACK = (0, 0, 0)
 
 GAME_FILE = 'prepped_games/prepped_games_file.txt'
 GAME_FILE_SOLVED = 'prepped_games/prepped_games_file_solved.txt'
+GAME_FILE_OWN = 'prepped_games/own_games.txt'
 GAME_ICON = 'img/icon1.png'
 GAME_TITLE = 'SUDOKU SOLVER'
 CLOCK_ICON = 'img/clock_icon3b.png'

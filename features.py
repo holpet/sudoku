@@ -1,10 +1,12 @@
 import constants
 import pygame
-import time
 
 global STRIKES  # Counter of bad answers
 STRIKES = 0
 
+
+# --------------------------------------------------------------------------------------------
+# TIME FORMAT
 
 def format_time(secs):
     sec = secs % 60
@@ -25,6 +27,9 @@ def format_time(secs):
     timer = hour + ":" + min + ":" + sec
     return timer
 
+
+# --------------------------------------------------------------------------------------------
+# DRAW FEATURES
 
 def draw_timer(surface, timer):
     font = pygame.font.Font(constants.FONT_MONO, 19, bold=True)
@@ -73,35 +78,81 @@ def draw_title(surface):
     surface.blit(text, (text_x, text_y))
 
 
+# >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> #
+
+
+def redraw_button(surface, reset_button, hint_button, solve_button, new_button, visu_button, generate_button, insert_button, validate_button):
+    # Clear the screen before drawing
+    reset_button.draw_button(surface, constants.BLACK)
+    hint_button.draw_button(surface, constants.BLACK)
+    solve_button.draw_button(surface, constants.BLACK)
+    new_button.draw_button(surface, constants.BLACK)
+    visu_button.draw_button(surface, constants.BLACK)
+    generate_button.draw_button(surface, constants.BLACK)
+    insert_button.draw_button(surface, constants.BLACK)
+    validate_button.draw_button(surface, constants.BLACK)
+
+
+def change_color_on_hover(pos, btn, red=False):
+    if btn.isOver(pos):
+        btn.color = constants.LIGHTER_BLUE
+    else:
+        if btn.text == 'X' or btn.text == '':
+            btn.color = constants.LIGHT_GREY
+        else:
+            btn.color = constants.GREY
+    if red:
+        btn.color = constants.LIGHTER_BLUE
+
+
+# --------------------------------------------------------------------------------------------
+# INIT FEATURES
+
 def init_buttons(surface):
     x = constants.SIDE_SPACE
     y = constants.TOP_SPACE + constants.BLOCK_HEIGHT*constants.NUMBER_OF_BLOCKS_COL + 25
     width = constants.BLOCK_WIDTH*3 - 5
     height = constants.BLOCK_HEIGHT/3 + 5
 
+    # COLUMN 1
     reset_button = Button(constants.GREY, x, y, width, height, "Reset Game")
-    hint_button = Button(constants.GREY, x, y+height+5, width, height, "Use Hint")
+    hint_button = Button(constants.GREY, x, y+height+5, width, height, "Show Hint")
     solve_button = Button(constants.GREY, x, y+(height+5)*2, width, height, "Solve Game")
     visu_button = Button(constants.LIGHT_GREY, x, y+(height+5)*3, height, height, "X")
 
-    new_button = Button(constants.LIGHT_GREY, x+constants.BLOCK_WIDTH*3 + 5, y, width+constants.BLOCK_WIDTH - 5, height, "New Game")
+    # COLUMN 2
+    new_button = Button(constants.LIGHT_GREY, x+constants.BLOCK_WIDTH*3 + 5, y, width+constants.BLOCK_WIDTH - 5, height, "New Game:")
+    generate_button = Button(constants.GREY, x+constants.BLOCK_WIDTH*3 + 5, y+height+5, width+constants.BLOCK_WIDTH - 5, height, "Generate Random Game", True)
+    insert_button = Button(constants.GREY, x + constants.BLOCK_WIDTH * 3 + 5, y+(height+5)*2,
+                             width + constants.BLOCK_WIDTH - 5, height, "Insert Own Game", True)
+    validate_button = Button(constants.GREEN, x + constants.BLOCK_WIDTH * 3 + 5, y+(height+5)*3,
+                             width + constants.BLOCK_WIDTH - 5, height, '- Game Ready | Start -', True)
 
+    # DRAW BUTTONS
     reset_button.draw_button(surface, constants.BLACK)
     hint_button.draw_button(surface, constants.BLACK)
     solve_button.draw_button(surface, constants.BLACK)
     new_button.draw_button(surface, constants.BLACK)
     visu_button.draw_button(surface, constants.BLACK)
-    return reset_button, hint_button, solve_button, new_button, visu_button
+    generate_button.draw_button(surface, constants.BLACK)
+    insert_button.draw_button(surface, constants.BLACK)
+    validate_button.draw_button(surface, constants.BLACK)
 
+    return reset_button, hint_button, solve_button, new_button, visu_button, generate_button, insert_button, validate_button
+
+
+# --------------------------------------------------------------------------------------------
+# FEATURE CLASSES
 
 class Button:
-    def __init__(self, color, x, y, width, height, text):
+    def __init__(self, color, x, y, width, height, text, text_small=False):
         self.color = color
         self.x = x
         self.y = y
         self.width = width
         self.height = height
         self.text = text
+        self.text_small = text_small
 
     def draw_button(self, surface, outline=None):
         if outline:
@@ -111,7 +162,10 @@ class Button:
         pygame.draw.rect(surface, self.color, myrect)
 
         if self.text != '':
-            font = pygame.font.SysFont("Arial", 18, bold=True)
+            if self.text_small:
+                font = pygame.font.SysFont("Arial", 13, bold=True)
+            else:
+                font = pygame.font.SysFont("Arial", 18, bold=True)
             text = font.render(self.text, True, constants.BLACK)
             surface.blit(text, (self.x + (self.width / 2 - text.get_rect().width / 2),
                                 self.y + (self.height / 2 - text.get_rect().height / 2)))
