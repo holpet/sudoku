@@ -2,18 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cbf57e58-edce-43b5-b6b7-35913fb16fd7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/event_handler.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/img_processor.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/board.py" beforeDir="false" afterPath="$PROJECT_DIR$/board.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/constants.py" beforeDir="false" afterPath="$PROJECT_DIR$/constants.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/features.py" beforeDir="false" afterPath="$PROJECT_DIR$/features.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game.py" beforeDir="false" afterPath="$PROJECT_DIR$/game.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gui.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/prepped_games/prepped_games_file.txt" beforeDir="false" afterPath="$PROJECT_DIR$/prepped_games/prepped_games_file.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/prepped_games/prepped_games_file_solved.txt" beforeDir="false" afterPath="$PROJECT_DIR$/prepped_games/prepped_games_file_solved.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/img_processor.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/solver.py" beforeDir="false" afterPath="$PROJECT_DIR$/solver.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/testing.py" beforeDir="false" afterPath="$PROJECT_DIR$/testing/testing.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +31,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../crossfit" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
@@ -162,8 +154,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.main" />
-        <item itemvalue="Python.game" />
         <item itemvalue="Python.img_processor" />
+        <item itemvalue="Python.game" />
         <item itemvalue="Python.testing_img_processing" />
         <item itemvalue="Python.testing" />
       </list>
@@ -183,89 +175,31 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="552" y="177" key="#Inspections" timestamp="1589887237536">
+    <state width="1898" height="251" key="GridCell.Tab.0.bottom" timestamp="1601648661391">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="177" key="#Inspections/0.0.1920.1040@0.0.1920.1040" timestamp="1589887237536" />
-    <state x="552" y="177" key="#Notifications" timestamp="1590324631793">
+    <state width="1898" height="251" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1601648661391" />
+    <state width="1898" height="251" key="GridCell.Tab.0.center" timestamp="1601648661391">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="177" key="#Notifications/0.0.1920.1040@0.0.1920.1040" timestamp="1590324631793" />
-    <state x="414" y="173" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1589490111075">
+    <state width="1898" height="251" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1601648661391" />
+    <state width="1898" height="251" key="GridCell.Tab.0.left" timestamp="1601648661391">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="414" y="173" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1589490111075" />
-    <state x="689" y="302" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1589483734365">
+    <state width="1898" height="251" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1601648661391" />
+    <state width="1898" height="251" key="GridCell.Tab.0.right" timestamp="1601648661391">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="689" y="302" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1589483734365" />
-    <state x="740" y="307" key="FileChooserDialogImpl" timestamp="1590609050231">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="740" y="307" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1590609050231" />
-    <state width="1898" height="251" key="GridCell.Tab.0.bottom" timestamp="1592935455019">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1898" height="251" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1592935455019" />
-    <state width="1898" height="251" key="GridCell.Tab.0.center" timestamp="1592935455019">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1898" height="251" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1592935455019" />
-    <state width="1898" height="251" key="GridCell.Tab.0.left" timestamp="1592935455018">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1898" height="251" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1592935455018" />
-    <state width="1898" height="251" key="GridCell.Tab.0.right" timestamp="1592935455019">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1898" height="251" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1592935455019" />
-    <state width="1898" height="341" key="GridCell.Tab.1.bottom" timestamp="1592924491513">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1898" height="341" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1592924491513" />
-    <state width="1898" height="341" key="GridCell.Tab.1.center" timestamp="1592924491513">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1898" height="341" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1592924491513" />
-    <state width="1898" height="341" key="GridCell.Tab.1.left" timestamp="1592924491513">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1898" height="341" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1592924491513" />
-    <state width="1898" height="341" key="GridCell.Tab.1.right" timestamp="1592924491513">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1898" height="341" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1592924491513" />
-    <state x="461" y="150" key="SettingsEditor" timestamp="1590324603492">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="461" y="150" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1590324603492" />
-    <state width="498" height="446" key="SwitcherDM" timestamp="1589808224945">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="498" height="446" key="SwitcherDM/0.0.1920.1040@0.0.1920.1040" timestamp="1589808224945" />
-    <state width="968" height="528" key="XDebugger.FullValuePopup" timestamp="1592831813516">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="968" height="528" key="XDebugger.FullValuePopup/0.0.1920.1040@0.0.1920.1040" timestamp="1592831813516" />
-    <state x="661" y="342" key="com.intellij.ide.util.TipDialog" timestamp="1590092146770">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="661" y="342" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1590092146770" />
-    <state x="769" y="435" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1589900217282">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="769" y="435" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1589900217282" />
-    <state x="531" y="254" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1592507615099">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="531" y="254" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1920.1040@0.0.1920.1040" timestamp="1592507615099" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1590589594494">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1590589594494" />
+    <state width="1898" height="251" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1601648661391" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/game.py</url>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog>
           <selected-grouping-rules>

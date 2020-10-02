@@ -36,17 +36,17 @@ def solve(bo):
 
 # Take in idx as tpl and list of values to check for validity.
 def validate(bo, pos, num):
-    # Check on horizontal
+    # Check for same nums on horizontal
     for i in range(9):
         if num == int(bo[pos[0]][i]):
             return False
 
-    # Check on vertical
+    # Check for same nums on vertical
     for j in range(9):
         if num == int(bo[j][pos[1]]):
             return False
 
-    # Check on group 3x3
+    # Check for same nums on group 3x3
     row = pos[0] // 3
     col = pos[1] // 3
 
